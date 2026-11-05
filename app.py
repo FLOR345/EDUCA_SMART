@@ -1,4 +1,4 @@
-"""EDUCA-SMART - interfaz Streamlit (ejecución local).
+"""YachaQ - interfaz Streamlit (ejecución local).
 
 Uso:  streamlit run app.py
 """
@@ -15,7 +15,7 @@ RAIZ = Path(__file__).resolve().parent
 EJEMPLOS = RAIZ / "examples"
 NO_EVALUACION = {"codigo", "asistencia", "dni", "edad", "ciclo"}
 
-st.set_page_config(page_title="EDUCA-SMART", page_icon="🎓", layout="wide")
+st.set_page_config(page_title="YachaQ", page_icon="🎓", layout="wide")
 
 
 # ---------- utilidades ----------
@@ -47,7 +47,7 @@ def hay_notas() -> bool:
 
 
 # ---------- barra lateral ----------
-st.sidebar.title("🎓 EDUCA-SMART")
+st.sidebar.image(str(RAIZ / "web" / "public" / "marca" / "yachaq-720.webp"), width=200)
 st.sidebar.caption(f"v{__version__} · gestión de aprendizaje y evaluación")
 pagina = st.sidebar.radio("Módulo", [
     "1. Registro de notas", "2. Calificaciones", "3. Estadísticas del curso",
@@ -332,7 +332,7 @@ else:
     if "examen" in st.session_state:
         hojas["Analisis de examen"] = st.session_state.examen
     st.write("El libro incluirá estas hojas:", ", ".join(hojas))
-    nombre = f"EDUCA-SMART_{st.session_state.curso}_{st.session_state.periodo}.xlsx".replace(" ", "_")
+    nombre = f"YachaQ_{st.session_state.curso}_{st.session_state.periodo}.xlsx".replace(" ", "_")
     st.download_button("Descargar Excel", reports.a_excel(hojas), file_name=nombre,
                        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                        type="primary")

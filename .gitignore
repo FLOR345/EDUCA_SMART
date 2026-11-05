@@ -14,3 +14,6 @@ Thumbs.db
 
 # Configuración local de Claude Code
 .claude/
+
+# Capturas de revisión de diseño
+.taste-skill/

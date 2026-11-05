@@ -1,0 +1,756 @@
+{
+ "pesos": {
+  "PC1": 15,
+  "PC2": 15,
+  "EP": 25,
+  "TA": 15,
+  "EF": 30
+ },
+ "rendidas": [
+  "PC1",
+  "PC2",
+  "EP",
+  "TA"
+ ],
+ "finales": {
+  "20260001": {
+   "promedio": 11.22,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260002": {
+   "promedio": 12.1,
+   "nota_final": 12,
+   "pendientes": 0
+  },
+  "20260003": {
+   "promedio": 6.23,
+   "nota_final": 6,
+   "pendientes": 0
+  },
+  "20260004": {
+   "promedio": 16.49,
+   "nota_final": 16,
+   "pendientes": 0
+  },
+  "20260005": {
+   "promedio": 8.7,
+   "nota_final": 9,
+   "pendientes": 1
+  },
+  "20260006": {
+   "promedio": 12.16,
+   "nota_final": 12,
+   "pendientes": 0
+  },
+  "20260007": {
+   "promedio": 11.04,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260008": {
+   "promedio": 12.92,
+   "nota_final": 13,
+   "pendientes": 0
+  },
+  "20260009": {
+   "promedio": 12.36,
+   "nota_final": 12,
+   "pendientes": 0
+  },
+  "20260010": {
+   "promedio": 10.98,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260011": {
+   "promedio": 14.77,
+   "nota_final": 15,
+   "pendientes": 0
+  },
+  "20260012": {
+   "promedio": 11.96,
+   "nota_final": 12,
+   "pendientes": 1
+  },
+  "20260013": {
+   "promedio": 10.86,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260014": {
+   "promedio": 13.07,
+   "nota_final": 13,
+   "pendientes": 0
+  },
+  "20260015": {
+   "promedio": 15.54,
+   "nota_final": 16,
+   "pendientes": 0
+  },
+  "20260016": {
+   "promedio": 10.39,
+   "nota_final": 10,
+   "pendientes": 0
+  },
+  "20260017": {
+   "promedio": 10.76,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260018": {
+   "promedio": 11.11,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260019": {
+   "promedio": 12.64,
+   "nota_final": 13,
+   "pendientes": 0
+  },
+  "20260020": {
+   "promedio": 8.37,
+   "nota_final": 8,
+   "pendientes": 0
+  },
+  "20260021": {
+   "promedio": 7.36,
+   "nota_final": 7,
+   "pendientes": 1
+  },
+  "20260022": {
+   "promedio": 15.8,
+   "nota_final": 16,
+   "pendientes": 0
+  },
+  "20260023": {
+   "promedio": 10.67,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260024": {
+   "promedio": 11.54,
+   "nota_final": 12,
+   "pendientes": 0
+  },
+  "20260025": {
+   "promedio": 13.54,
+   "nota_final": 14,
+   "pendientes": 0
+  },
+  "20260026": {
+   "promedio": 17.15,
+   "nota_final": 17,
+   "pendientes": 0
+  },
+  "20260027": {
+   "promedio": 9.94,
+   "nota_final": 10,
+   "pendientes": 0
+  },
+  "20260028": {
+   "promedio": 16.79,
+   "nota_final": 17,
+   "pendientes": 0
+  },
+  "20260029": {
+   "promedio": 9.5,
+   "nota_final": 10,
+   "pendientes": 0
+  },
+  "20260030": {
+   "promedio": 12.23,
+   "nota_final": 12,
+   "pendientes": 0
+  },
+  "20260031": {
+   "promedio": 10.15,
+   "nota_final": 10,
+   "pendientes": 0
+  },
+  "20260032": {
+   "promedio": 13.96,
+   "nota_final": 14,
+   "pendientes": 1
+  },
+  "20260033": {
+   "promedio": 14.74,
+   "nota_final": 15,
+   "pendientes": 0
+  },
+  "20260034": {
+   "promedio": 15.13,
+   "nota_final": 15,
+   "pendientes": 0
+  },
+  "20260035": {
+   "promedio": 9.46,
+   "nota_final": 9,
+   "pendientes": 0
+  },
+  "20260036": {
+   "promedio": 14.93,
+   "nota_final": 15,
+   "pendientes": 0
+  },
+  "20260037": {
+   "promedio": 10.89,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260038": {
+   "promedio": 10.66,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260039": {
+   "promedio": 13.95,
+   "nota_final": 14,
+   "pendientes": 0
+  },
+  "20260040": {
+   "promedio": 15.08,
+   "nota_final": 15,
+   "pendientes": 0
+  },
+  "20260041": {
+   "promedio": 13.33,
+   "nota_final": 13,
+   "pendientes": 0
+  },
+  "20260042": {
+   "promedio": 8.61,
+   "nota_final": 9,
+   "pendientes": 0
+  },
+  "20260043": {
+   "promedio": 9.56,
+   "nota_final": 10,
+   "pendientes": 0
+  },
+  "20260044": {
+   "promedio": 16.57,
+   "nota_final": 17,
+   "pendientes": 0
+  },
+  "20260045": {
+   "promedio": 13.04,
+   "nota_final": 13,
+   "pendientes": 0
+  },
+  "20260046": {
+   "promedio": 14.02,
+   "nota_final": 14,
+   "pendientes": 0
+  },
+  "20260047": {
+   "promedio": 19.67,
+   "nota_final": 20,
+   "pendientes": 0
+  },
+  "20260048": {
+   "promedio": 11.49,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260049": {
+   "promedio": 19.64,
+   "nota_final": 20,
+   "pendientes": 0
+  },
+  "20260050": {
+   "promedio": 20.0,
+   "nota_final": 20,
+   "pendientes": 0
+  },
+  "20260051": {
+   "promedio": 18.87,
+   "nota_final": 19,
+   "pendientes": 0
+  },
+  "20260052": {
+   "promedio": 14.3,
+   "nota_final": 14,
+   "pendientes": 0
+  },
+  "20260053": {
+   "promedio": 9.76,
+   "nota_final": 10,
+   "pendientes": 0
+  },
+  "20260054": {
+   "promedio": 16.03,
+   "nota_final": 16,
+   "pendientes": 0
+  },
+  "20260055": {
+   "promedio": 10.04,
+   "nota_final": 10,
+   "pendientes": 0
+  },
+  "20260056": {
+   "promedio": 11.48,
+   "nota_final": 11,
+   "pendientes": 0
+  },
+  "20260057": {
+   "promedio": 11.5,
+   "nota_final": 12,
+   "pendientes": 0
+  },
+  "20260058": {
+   "promedio": 13.05,
+   "nota_final": 13,
+   "pendientes": 0
+  },
+  "20260059": {
+   "promedio": 15.93,
+   "nota_final": 16,
+   "pendientes": 0
+  },
+  "20260060": {
+   "promedio": 11.3,
+   "nota_final": 11,
+   "pendientes": 0
+  }
+ },
+ "resumen": {
+  "estudiantes": 60,
+  "promedio": 12.76,
+  "mediana": 12.0,
+  "desviacion": 3.06,
+  "maxima": 20,
+  "minima": 6,
+  "aprobados": 47,
+  "tasa_aprobacion": 78.3
+ },
+ "riesgo": {
+  "20260003": {
+   "indice": 0.672,
+   "nivel": "Alto",
+   "factor": "rendimiento"
+  },
+  "20260029": {
+   "indice": 0.535,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260027": {
+   "indice": 0.411,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260035": {
+   "indice": 0.402,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260020": {
+   "indice": 0.388,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260042": {
+   "indice": 0.385,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260053": {
+   "indice": 0.382,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260037": {
+   "indice": 0.375,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260001": {
+   "indice": 0.36,
+   "nivel": "Medio",
+   "factor": "rendimiento"
+  },
+  "20260055": {
+   "indice": 0.32,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260043": {
+   "indice": 0.318,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260057": {
+   "indice": 0.314,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260021": {
+   "indice": 0.313,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260031": {
+   "indice": 0.311,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260052": {
+   "indice": 0.272,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260017": {
+   "indice": 0.272,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260023": {
+   "indice": 0.253,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260016": {
+   "indice": 0.242,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260048": {
+   "indice": 0.24,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260002": {
+   "indice": 0.239,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260041": {
+   "indice": 0.238,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260032": {
+   "indice": 0.232,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260009": {
+   "indice": 0.219,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260039": {
+   "indice": 0.212,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260004": {
+   "indice": 0.209,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260007": {
+   "indice": 0.209,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260033": {
+   "indice": 0.196,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260011": {
+   "indice": 0.194,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260010": {
+   "indice": 0.182,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260013": {
+   "indice": 0.182,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260024": {
+   "indice": 0.161,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260012": {
+   "indice": 0.149,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260014": {
+   "indice": 0.146,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260034": {
+   "indice": 0.126,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260018": {
+   "indice": 0.123,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260005": {
+   "indice": 0.121,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260026": {
+   "indice": 0.12,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260054": {
+   "indice": 0.116,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260060": {
+   "indice": 0.114,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260040": {
+   "indice": 0.11,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260038": {
+   "indice": 0.108,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260045": {
+   "indice": 0.088,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260006": {
+   "indice": 0.085,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260022": {
+   "indice": 0.081,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260046": {
+   "indice": 0.075,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260056": {
+   "indice": 0.069,
+   "nivel": "Bajo",
+   "factor": "rendimiento"
+  },
+  "20260051": {
+   "indice": 0.058,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260028": {
+   "indice": 0.043,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260008": {
+   "indice": 0.042,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260058": {
+   "indice": 0.026,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260030": {
+   "indice": 0.025,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260025": {
+   "indice": 0.023,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260044": {
+   "indice": 0.011,
+   "nivel": "Bajo",
+   "factor": "asistencia"
+  },
+  "20260019": {
+   "indice": 0.01,
+   "nivel": "Bajo",
+   "factor": "tendencia"
+  },
+  "20260015": {
+   "indice": 0.0,
+   "nivel": "Bajo",
+   "factor": "-"
+  },
+  "20260036": {
+   "indice": 0.0,
+   "nivel": "Bajo",
+   "factor": "-"
+  },
+  "20260049": {
+   "indice": 0.0,
+   "nivel": "Bajo",
+   "factor": "-"
+  },
+  "20260050": {
+   "indice": 0.0,
+   "nivel": "Bajo",
+   "factor": "-"
+  },
+  "20260047": {
+   "indice": 0.0,
+   "nivel": "Bajo",
+   "factor": "-"
+  },
+  "20260059": {
+   "indice": 0.0,
+   "nivel": "Bajo",
+   "factor": "-"
+  }
+ },
+ "kr20": 0.5261419780479868,
+ "items": {
+  "P1": {
+   "dificultad": 0.633,
+   "discriminacion": 0.562,
+   "r_pbis": 0.224,
+   "diagnostico": "Excelente"
+  },
+  "P2": {
+   "dificultad": 0.7,
+   "discriminacion": 0.438,
+   "r_pbis": 0.35,
+   "diagnostico": "Excelente"
+  },
+  "P3": {
+   "dificultad": 0.367,
+   "discriminacion": 0.5,
+   "r_pbis": 0.192,
+   "diagnostico": "Excelente"
+  },
+  "P4": {
+   "dificultad": 0.317,
+   "discriminacion": 0.0,
+   "r_pbis": -0.3,
+   "diagnostico": "Revisar clave: discrimina al revés"
+  },
+  "P5": {
+   "dificultad": 0.783,
+   "discriminacion": 0.438,
+   "r_pbis": 0.395,
+   "diagnostico": "Excelente"
+  },
+  "P6": {
+   "dificultad": 0.517,
+   "discriminacion": 0.375,
+   "r_pbis": 0.128,
+   "diagnostico": "Buena"
+  },
+  "P7": {
+   "dificultad": 0.4,
+   "discriminacion": 0.188,
+   "r_pbis": -0.022,
+   "diagnostico": "Descartar o reformular"
+  },
+  "P8": {
+   "dificultad": 0.983,
+   "discriminacion": 0.062,
+   "r_pbis": 0.029,
+   "diagnostico": "Descartar o reformular (muy fácil)"
+  },
+  "P9": {
+   "dificultad": 0.467,
+   "discriminacion": 0.312,
+   "r_pbis": -0.033,
+   "diagnostico": "Buena"
+  },
+  "P10": {
+   "dificultad": 0.467,
+   "discriminacion": 0.312,
+   "r_pbis": 0.114,
+   "diagnostico": "Buena"
+  },
+  "P11": {
+   "dificultad": 0.45,
+   "discriminacion": 0.312,
+   "r_pbis": -0.049,
+   "diagnostico": "Buena"
+  },
+  "P12": {
+   "dificultad": 0.683,
+   "discriminacion": 0.25,
+   "r_pbis": 0.111,
+   "diagnostico": "Mejorar"
+  },
+  "P13": {
+   "dificultad": 0.667,
+   "discriminacion": 0.5,
+   "r_pbis": 0.347,
+   "diagnostico": "Excelente"
+  },
+  "P14": {
+   "dificultad": 0.867,
+   "discriminacion": 0.312,
+   "r_pbis": 0.232,
+   "diagnostico": "Buena"
+  },
+  "P15": {
+   "dificultad": 0.633,
+   "discriminacion": 0.562,
+   "r_pbis": 0.363,
+   "diagnostico": "Excelente"
+  },
+  "P16": {
+   "dificultad": 0.717,
+   "discriminacion": 0.375,
+   "r_pbis": 0.207,
+   "diagnostico": "Buena"
+  },
+  "P17": {
+   "dificultad": 0.817,
+   "discriminacion": 0.312,
+   "r_pbis": 0.201,
+   "diagnostico": "Buena"
+  },
+  "P18": {
+   "dificultad": 0.85,
+   "discriminacion": 0.312,
+   "r_pbis": 0.237,
+   "diagnostico": "Buena"
+  },
+  "P19": {
+   "dificultad": 0.733,
+   "discriminacion": 0.625,
+   "r_pbis": 0.513,
+   "diagnostico": "Excelente"
+  },
+  "P20": {
+   "dificultad": 0.55,
+   "discriminacion": 0.375,
+   "r_pbis": 0.154,
+   "diagnostico": "Buena"
+  }
+ },
+ "nota_necesaria": {
+  "a": 11.0,
+  "b": 9.7
+ }
+}
