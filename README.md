@@ -112,7 +112,7 @@ python scripts/exportar_referencia.py   # actualiza la referencia que usan las p
 
 ## Privacidad
 
-Todo se procesa **en el equipo del usuario**; no se envía ningún dato a internet, tampoco en la app web publicada: los archivos se leen en el navegador y el curso se guarda en su almacenamiento local. En la versión Python, el historial se guarda en `data/educa_smart.db`, que está excluido del repositorio para no publicar notas de estudiantes.
+Todo se procesa **en el equipo del usuario**; no se envía ningún dato a internet, tampoco en la app web publicada: los archivos se leen en el navegador y el curso se guarda en su almacenamiento local. En la versión Python, el historial se guarda en `data/yachaq.db`, que está excluido del repositorio para no publicar notas de estudiantes.
 
 ## Estructura
 

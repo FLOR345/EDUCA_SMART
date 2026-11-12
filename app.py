@@ -289,7 +289,7 @@ elif pagina.startswith("6"):
         if st.button(f"Guardar {st.session_state.curso} ({st.session_state.periodo})", type="primary"):
             h.guardar(st.session_state.curso, st.session_state.periodo,
                       st.session_state.pesos, st.session_state.crudo)
-            st.success("Curso guardado en el equipo (data/educa_smart.db).")
+            st.success("Curso guardado en el equipo (data/yachaq.db).")
     lista = h.listar()
     if lista.empty:
         st.info("Aún no hay cursos guardados.")

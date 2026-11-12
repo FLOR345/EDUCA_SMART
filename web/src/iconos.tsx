@@ -42,6 +42,31 @@ export const Cerrar = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base(p)}><path d="m4 4 8 8M12 4l-8 8" /></svg>
 );
 
+export const Chevron = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="m4 6 4 4 4-4" /></svg>
+);
+export const FlechaIzq = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="M10 3.5 5.5 8 10 12.5" /></svg>
+);
+export const FlechaDer = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="M6 3.5 10.5 8 6 12.5" /></svg>
+);
+export const Sube = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="M3 11l3.5-3.5 2.5 2.5L13 5.5M10 5.5h3v3" /></svg>
+);
+export const Baja = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="M3 5l3.5 3.5L9 6l4 4M10 10.5h3v-3" /></svg>
+);
+export const Ordenar = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="M5 3v10M3 11l2 2 2-2M11 13V3M9 5l2-2 2 2" /></svg>
+);
+export const Reiniciar = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><path d="M13 8a5 5 0 1 1-1.6-3.7M13 2.5v3h-3" /></svg>
+);
+export const Asistencia = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base(p)}><rect x="2.5" y="3.5" width="11" height="10" rx="1.5" /><path d="M5.5 2v3M10.5 2v3M5.5 9l2 2 3-3.5" /></svg>
+);
+
 /** Marca pequeña de YachaQ: el sol tras el nevado, en los colores del logo. */
 export const Marca = () => (
   <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">

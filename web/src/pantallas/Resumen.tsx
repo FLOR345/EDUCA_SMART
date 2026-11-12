@@ -2,12 +2,14 @@ import { useMemo, useState } from "react";
 import { useEstado } from "../state";
 import { ir } from "../App";
 import { EscalaVigesimal } from "../charts";
-import { nivelesLogro, porEvaluacion, resumen } from "../lib/estadisticas";
+import { porEvaluacion, resumen } from "../lib/estadisticas";
 import { NOTA_APROBATORIA } from "../lib/grading";
 import { nombreCompleto } from "../lib/datos";
 import { f0, f1, f2, nota, pct } from "../lib/formato";
 import { NOMBRE_FACTOR } from "../lib/risk";
-import { Avatar, PillNivel, Seg, SinDatos } from "../ui";
+import { Avatar, PillNivel, SinDatos } from "../ui";
+import * as I from "../iconos";
+import { BarrasEvaluaciones, CarruselEstudiantes, Destacados, DonaEstudiantes, Filtro, KpiIcono, Medidores, Tendencias, type Tendencia } from "../panel";
 
 export default function PantallaResumen() {
   const e = useEstado();
@@ -16,14 +18,56 @@ export default function PantallaResumen() {
     [e.resultados],
   );
   const [seccion, setSeccion] = useState<string>("todas");
-  const vista = seccion === "todas" ? e.resultados : e.resultados.filter((r) => r.seccion === seccion);
+  const [condicion, setCondicion] = useState<"todos" | "aprobados" | "desaprobados">("todos");
+  const vista = e.resultados.filter(
+    (r) =>
+      (seccion === "todas" || r.seccion === seccion) &&
+      (condicion === "todos" || (condicion === "aprobados" ? r.aprobado : !r.aprobado)),
+  );
   const s = resumen(vista);
+  const hayFiltro = seccion !== "todas" || condicion !== "todos";
+
+  if (!e.resultados.length) {
+    return (
+      <>
+        <div className="title-row"><div><h1>Resumen del curso</h1></div></div>
+        <SinDatos />
+      </>
+    );
+  }
+
+  const filtros = (
+    <div className="filtros-col">
+      <Filtro
+        etiqueta="Sección"
+        valor={seccion}
+        onCambio={setSeccion}
+        opciones={[{ id: "todas", nombre: "Todas las secciones" }, ...secciones.map((x) => ({ id: x, nombre: `Sección ${x}` }))]}
+      />
+      <Filtro
+        etiqueta="Condición"
+        valor={condicion}
+        onCambio={setCondicion}
+        opciones={[
+          { id: "todos", nombre: "Todos los estudiantes" },
+          { id: "aprobados", nombre: "Solo aprobados" },
+          { id: "desaprobados", nombre: "Solo desaprobados" },
+        ]}
+      />
+      {hayFiltro && (
+        <button type="button" className="btn ghost" onClick={() => { setSeccion("todas"); setCondicion("todos"); }}>
+          <I.Reiniciar /> Quitar filtros
+        </button>
+      )}
+    </div>
+  );
 
   if (!s) {
     return (
       <>
         <div className="title-row"><div><h1>Resumen del curso</h1></div></div>
-        <SinDatos />
+        <div className="top-row">{filtros}</div>
+        <div className="empty" style={{ marginTop: "var(--gap)" }}>Ningún estudiante coincide con los filtros elegidos.</div>
       </>
     );
   }
@@ -35,7 +79,42 @@ export default function PantallaResumen() {
   const codigosVista = new Set(vista.map((r) => r.codigo));
   const riesgoAlto = e.riesgo.filter((r) => r.nivel !== "Bajo" && codigosVista.has(r.codigo));
   const evals = porEvaluacion(vista, e.evaluaciones);
-  const niveles = nivelesLogro(vista);
+  const conAsis = vista.filter((r) => r.asistencia != null);
+  const asistenciaMedia = conAsis.length ? (100 * conAsis.reduce((a, r) => a + r.asistencia!, 0)) / conAsis.length : null;
+  const tendencias = calcularTendencias();
+  function calcularTendencias(): Tendencia[] {
+    const v = e.rendidas;
+    const ult = v[v.length - 1];
+    const ant = v.length > 1 ? v[v.length - 2] : null;
+    const datos = porEvaluacion(vista, ult ? (ant ? [ant, ult] : [ult]) : []);
+    const [dAnt, dUlt] = ant ? datos : [null, datos[0]];
+    const delta = (a: number | null | undefined, b: number | null | undefined) => (a != null && b != null ? a - b : null);
+    const lista: Tendencia[] = [];
+    if (ult && dUlt) {
+      lista.push({
+        etiqueta: `Promedio en ${ult}`,
+        valor: dUlt.promedio == null ? "—" : f1(dUlt.promedio),
+        delta: delta(dUlt.promedio, dAnt?.promedio),
+        unidad: "pts",
+        detalle: "Primera evaluación",
+      });
+      lista.push({
+        etiqueta: `Aprueban en ${ult}`,
+        valor: pct(dUlt.aprobados),
+        delta: delta(dUlt.aprobados, dAnt?.aprobados),
+        unidad: "pp",
+        detalle: "Primera evaluación",
+      });
+    }
+    lista.push({
+      etiqueta: "En riesgo alto o medio",
+      valor: String(riesgoAlto.length),
+      delta: null,
+      unidad: "",
+      detalle: `de ${s!.estudiantes}`,
+    });
+    return lista;
+  }
   const pesoTotal = Object.values(e.pesos).reduce((a, b) => a + b, 0);
 
   return (
@@ -60,16 +139,19 @@ export default function PantallaResumen() {
         </div>
       </div>
 
-      {secciones.length > 1 && (
-        <div style={{ marginBottom: "var(--gap)" }}>
-          <Seg
-            etiqueta="Sección"
-            valor={seccion}
-            onCambio={setSeccion}
-            opciones={[{ id: "todas", nombre: "Todas las secciones" }, ...secciones.map((x) => ({ id: x, nombre: `Sección ${x}` }))]}
-          />
-        </div>
-      )}
+      <div className="top-row">
+        {filtros}
+        <KpiIcono icono={<I.Estudiantes width={28} height={28} />} valor={s.estudiantes} etiqueta="Estudiantes" />
+        <KpiIcono
+          icono={<I.Asistencia width={28} height={28} />}
+          valor={asistenciaMedia == null ? "—" : pct(asistenciaMedia)}
+          etiqueta="Asistencia media"
+        />
+      </div>
+
+      <div style={{ margin: "var(--gap) 0" }}>
+        <Tendencias items={tendencias} />
+      </div>
 
       <div className="with-rail">
         <div className="stack">
@@ -98,6 +180,11 @@ export default function PantallaResumen() {
             </div>
           </div>
 
+          <div className="row-2">
+            <DonaEstudiantes resultados={vista} />
+            <BarrasEvaluaciones resultados={vista} evaluaciones={e.evaluaciones} />
+          </div>
+
           <section className="card" aria-labelledby="t-escala">
             <div className="card-head">
               <h2 id="t-escala">Notas finales en la escala vigesimal</h2>
@@ -111,6 +198,8 @@ export default function PantallaResumen() {
               <EscalaVigesimal resultados={vista} onElegir={(c) => ir("estudiantes", c)} />
             </div>
           </section>
+
+          <Medidores resultados={vista} evaluaciones={e.evaluaciones} />
 
           <section className="card" aria-labelledby="t-evals">
             <div className="card-head">
@@ -149,7 +238,13 @@ export default function PantallaResumen() {
         </div>
 
         <aside className="rail">
-          <section>
+          <Destacados resultados={vista} rendidas={e.rendidas} />
+
+          <div style={{ marginTop: "var(--gap)" }}>
+            <CarruselEstudiantes resultados={vista} />
+          </div>
+
+          <section style={{ marginTop: "var(--gap)" }}>
             <h2 className="rail-title">Cerca de aprobar</h2>
             <div className="card" style={{ padding: "4px var(--card-pad)" }}>
               {cerca.length ? (
@@ -203,25 +298,6 @@ export default function PantallaResumen() {
             </div>
           </section>
 
-          <section style={{ marginTop: "var(--gap)" }}>
-            <h2 className="rail-title">Niveles de logro</h2>
-            <div className="card" style={{ padding: "4px var(--card-pad)" }}>
-              <ul className="list">
-                {niveles.map((n) => (
-                  <li key={n.nombre} style={{ minHeight: 44 }}>
-                    <span className="grow">
-                      <span className="name">{n.nombre}</span>
-                      <span className="sub">{n.rango}</span>
-                    </span>
-                    <span className="figure">
-                      <span className="num">{n.estudiantes}</span>
-                      <span className="sub num">{f1(n.porcentaje)} %</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
         </aside>
       </div>
     </>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEstado } from "../state";
 import { nombreCompleto } from "../lib/datos";
 import { f2, pct } from "../lib/formato";
-import { FACTORES, NOMBRE_FACTOR, PESOS_RIESGO, UMBRAL_ALTO, UMBRAL_MEDIO } from "../lib/risk";
+import { FACTORES, NOMBRE_FACTOR, PESOS_RIESGO, UMBRAL_ALTO, UMBRAL_MEDIO, type Factor } from "../lib/risk";
 import { Avatar, PillNivel, Seg, SinDatos } from "../ui";
 
 const ACCION = {
@@ -18,6 +18,15 @@ const EXPLICA = {
   tendencia: "Caída entre la primera y la última nota rendida (6 puntos = máximo).",
   pendientes: "Proporción de evaluaciones que aún no rinde.",
 } as const;
+
+/** Segundo factor que más pesa, si aporta de verdad (al menos 0,05 al índice). */
+function segundo(f: Record<Factor, number>, principal: Factor, pesos: Record<Factor, number>): Factor | null {
+  const total = Object.values(pesos).reduce((a, b) => a + b, 0) || 1;
+  const otros = FACTORES.filter((x) => x !== principal)
+    .map((x) => ({ x, aporte: (f[x] * pesos[x]) / total }))
+    .sort((a, b) => b.aporte - a.aporte);
+  return otros[0] && otros[0].aporte >= 0.05 ? otros[0].x : null;
+}
 
 export default function PantallaRiesgo() {
   const e = useEstado();
@@ -102,7 +111,7 @@ export default function PantallaRiesgo() {
                 />
               </div>
             </div>
-            <div className="table-wrap" style={{ marginTop: 8 }}>
+            <div className="table-wrap scroll" style={{ marginTop: 8 }}>
               <table>
                 <thead>
                   <tr>
@@ -132,7 +141,7 @@ export default function PantallaRiesgo() {
                         <td className="num">
                           <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
                             <span className="bar-track" style={{ width: 72, height: 4 }}>
-                              <span className={`bar-fill${x.nivel === "Alto" ? " bad" : ""}`} style={{ display: "block", width: `${x.indice * 100}%`, background: x.nivel === "Bajo" ? "#bcc6d3" : undefined }} />
+                              <span className={`bar-fill${x.nivel === "Alto" ? " bad" : x.nivel === "Medio" ? " warn" : ""}`} style={{ display: "block", width: `${x.indice * 100}%`, background: x.nivel === "Bajo" ? "#bcc6d3" : undefined }} />
                             </span>
                             {f2(x.indice)}
                           </span>
@@ -140,7 +149,12 @@ export default function PantallaRiesgo() {
                         <td className="hide-phone">
                           {x.principal ? (
                             <span className="two">
-                              <span>{NOMBRE_FACTOR[x.principal]}</span>
+                              <span>
+                                {NOMBRE_FACTOR[x.principal]}
+                                {segundo(x.factores, x.principal, e.pesosRiesgo) && (
+                                  <span className="muted"> · {NOMBRE_FACTOR[segundo(x.factores, x.principal, e.pesosRiesgo)!]}</span>
+                                )}
+                              </span>
                               <span className="sub">{x.nivel === "Bajo" ? "Seguimiento regular" : ACCION[x.principal]}</span>
                             </span>
                           ) : <span className="dash">—</span>}

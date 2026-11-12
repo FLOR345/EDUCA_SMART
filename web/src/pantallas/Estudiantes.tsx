@@ -108,7 +108,7 @@ export default function PantallaEstudiantes({ elegido }: { elegido: string | nul
 
       <div className={sel ? "with-rail" : "stack"}>
         <section className="card" aria-label="Lista de estudiantes">
-          <div className="table-wrap">
+          <div className="table-wrap scroll">
             <table>
               <thead>
                 <tr>

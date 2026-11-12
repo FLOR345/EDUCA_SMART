@@ -24,7 +24,8 @@ interface Guardado {
   examen: { filas: Fila[]; clave: Clave; nombre: string } | null;
 }
 
-const CLAVE_LS = "educa-smart:v1";
+const CLAVE_LS = "yachaq:v1";
+const CLAVE_LS_ANTERIOR = "educa-smart:v1"; // nombre anterior: se lee una vez para no perder cursos guardados
 
 function ejemplo(): Guardado {
   const filas = leerCSV(notasEjemplo);
@@ -41,7 +42,7 @@ function ejemplo(): Guardado {
 
 function cargar(): Guardado {
   try {
-    const s = localStorage.getItem(CLAVE_LS);
+    const s = localStorage.getItem(CLAVE_LS) ?? localStorage.getItem(CLAVE_LS_ANTERIOR);
     if (s) return JSON.parse(s) as Guardado;
   } catch {
     /* almacenamiento no disponible o dañado: se usa el ejemplo */

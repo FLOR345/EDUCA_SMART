@@ -2,7 +2,7 @@
 import { useEffect, useId, useRef, useState } from "react";
 
 /** Ancho real del contenedor, para que el texto del gráfico quede a 12 px en cualquier pantalla. */
-function useAncho(inicial: number) {
+export function useAncho(inicial: number) {
   const ref = useRef<HTMLDivElement>(null);
   const [ancho, setAncho] = useState(inicial);
   useEffect(() => {
@@ -149,11 +149,12 @@ export function MapaPreguntas({
   const [ref, W] = useAncho(560);
   const H = 300;
   const m = { l: 40, r: 12, t: 16, b: 36 };
-  const yMin = -0.6;
+  const minD = Math.min(0, ...items.map((i) => i.discriminacion));
+  const yMin = Math.floor((minD - 0.1) * 5) / 5; // sólo baja hasta donde hay datos
   const yMax = 1;
   const x = (p: number) => m.l + p * (W - m.l - m.r);
   const y = (d: number) => m.t + ((yMax - d) / (yMax - yMin)) * (H - m.t - m.b);
-  const ticksY = [-0.5, 0, 0.5, 1];
+  const ticksY = [yMin, ...[0, 0.5, 1]].filter((t, i, a) => a.indexOf(t) === i && (t >= yMin));
   const ticksX = [0, 0.25, 0.5, 0.75, 1];
   return (
     <div ref={ref}>
@@ -203,11 +204,11 @@ export function MapaPreguntas({
             />
             {(sel || malo) && (
               <text
-                x={x(it.dificultad) + (it.dificultad > 0.9 ? -10 : 10)}
-                y={y(it.discriminacion) + 4}
-                textAnchor={it.dificultad > 0.9 ? "end" : "start"}
+                x={x(it.dificultad)}
+                y={y(it.discriminacion) - 12}
+                textAnchor={it.dificultad > 0.93 ? "end" : it.dificultad < 0.07 ? "start" : "middle"}
                 className="ink"
-                style={{ fontWeight: sel ? 600 : 500 }}
+                style={{ fontWeight: sel ? 600 : 500, paintOrder: "stroke", stroke: "var(--surface)", strokeWidth: 4, strokeLinejoin: "round" }}
               >
                 {it.pregunta}
               </text>

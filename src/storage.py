@@ -8,7 +8,8 @@ from pathlib import Path
 
 import pandas as pd
 
-RUTA_POR_DEFECTO = Path(__file__).resolve().parent.parent / "data" / "educa_smart.db"
+RUTA_POR_DEFECTO = Path(__file__).resolve().parent.parent / "data" / "yachaq.db"
+_RUTA_ANTERIOR = RUTA_POR_DEFECTO.with_name("educa_smart.db")  # nombre usado antes de YachaQ
 
 
 class Historial:
@@ -16,6 +17,9 @@ class Historial:
         self.ruta = str(ruta)
         if self.ruta != ":memory:":
             Path(self.ruta).parent.mkdir(parents=True, exist_ok=True)
+            # Conserva el historial guardado con el nombre anterior de la base.
+            if Path(self.ruta) == RUTA_POR_DEFECTO and not RUTA_POR_DEFECTO.exists() and _RUTA_ANTERIOR.exists():
+                _RUTA_ANTERIOR.rename(RUTA_POR_DEFECTO)
         self.con = sqlite3.connect(self.ruta, check_same_thread=False)
         self.con.execute("""CREATE TABLE IF NOT EXISTS cursos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,

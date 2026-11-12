@@ -4,6 +4,19 @@ import { aClave, columnasEvaluacion, leerArchivo, validarNotas, type Fila } from
 import { f1 } from "../lib/formato";
 import * as I from "../iconos";
 
+function descargar(nombre: string, texto: string) {
+  const url = URL.createObjectURL(new Blob(["\ufeff" + texto], { type: "text/csv;charset=utf-8" }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = nombre;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+const PLANTILLA_NOTAS = "codigo,apellidos,nombres,seccion,asistencia,PC1,PC2,EP,TA,EF\n20260001,Apellido Uno,Nombre,A,85,12.5,14,11,13,\n20260002,Apellido Dos,Nombre,B,92,16,15.5,17,14,\n";
+const PLANTILLA_RESPUESTAS = "codigo,P1,P2,P3,P4\n20260001,A,C,B,D\n20260002,A,B,B,D\n";
+const PLANTILLA_CLAVE = "pregunta,clave\nP1,A\nP2,C\nP3,B\nP4,D\n";
+
 function Zona({ titulo, ayuda, onArchivo, id }: { titulo: string; ayuda: ReactNode; onArchivo: (f: File) => void; id: string }) {
   const [sobre, setSobre] = useState(false);
   return (
@@ -120,6 +133,11 @@ export default function PantallaDatos() {
                 ayuda="CSV o Excel: una fila por estudiante y una columna por evaluación (0 a 20)."
                 onArchivo={cargarNotas}
               />
+              <div style={{ marginTop: 12 }}>
+                <button type="button" className="btn" onClick={() => descargar("plantilla_notas.csv", PLANTILLA_NOTAS)}>
+                  <I.Descargar /> Descargar plantilla de notas
+                </button>
+              </div>
               <p className="small muted" style={{ marginTop: 12 }}>
                 Columnas reconocidas: <span className="mono">codigo</span>, <span className="mono">apellidos</span>, <span className="mono">nombres</span>,{" "}
                 <span className="mono">seccion</span> y <span className="mono">asistencia</span> (en %), todas opcionales salvo las notas.
@@ -132,6 +150,14 @@ export default function PantallaDatos() {
             <div className="card-body stack" style={{ gap: 12 }}>
               <Zona id="f-resp" titulo="Respuestas" ayuda="Una fila por estudiante y una columna por pregunta (A, B, C… o 0/1)." onArchivo={cargarRespuestas} />
               <Zona id="f-clave" titulo="Clave (opcional)" ayuda="Dos columnas: pregunta y clave." onArchivo={cargarClave} />
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <button type="button" className="btn" onClick={() => descargar("plantilla_respuestas.csv", PLANTILLA_RESPUESTAS)}>
+                  <I.Descargar /> Plantilla de respuestas
+                </button>
+                <button type="button" className="btn" onClick={() => descargar("plantilla_clave.csv", PLANTILLA_CLAVE)}>
+                  <I.Descargar /> Plantilla de clave
+                </button>
+              </div>
               {e.examen && (
                 <p className="small muted">
                   Cargado: {e.examen.nombre}, {e.examen.filas.length} estudiantes
